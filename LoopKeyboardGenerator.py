@@ -117,6 +117,7 @@ if __name__ == "__main__":
                 print translate
                 exit()
     print "Done generating files."
-    print "Build project with make"
+    print
+    print "Build project with make and load into teensy"
     f = open("troll.c", "w")
     f.write(insert(timeout, output))
