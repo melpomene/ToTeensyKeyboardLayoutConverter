@@ -42,15 +42,11 @@ def insert(wait, press):
     #define LED_OFF     (PORTD |= (1<<6))
     #define CPU_PRESCALE(n) (CLKPR = 0x80, CLKPR = (n))
 
-    uint8_t number_keys[10]=
-        {KEY_0,KEY_1,KEY_2,KEY_3,KEY_4,KEY_5,KEY_6,KEY_7,KEY_8,KEY_9};
 
     uint16_t idle_count=0;
 
     int main(void)
     {
-        uint8_t b, d, mask, i, reset_idle;
-        uint8_t b_prev=0xFF, d_prev=0xFF;
 
         // set for 16 MHz clock
         CPU_PRESCALE(0);
@@ -108,9 +104,9 @@ if __name__ == "__main__":
         for char in chars:
             try:
                 if char in string.uppercase:
-                    output += "\t\tusb_keyboard_press(%s, KEY_SHIFT);\n" % translate[char.lower()]
+                    output += "\t\t\tusb_keyboard_press(%s, KEY_SHIFT);\n" % translate[char.lower()]
                 else:
-                    output += "\t\tusb_keyboard_press(%s, 0);\n" % translate[char.lower()]
+                    output += "\t\t\tusb_keyboard_press(%s, 0);\n" % translate[char.lower()]
             except KeyError:
                 print
                 print "Unable to print symbol. Only support subset of ascii"
@@ -121,3 +117,5 @@ if __name__ == "__main__":
     print "Build project with make and load into teensy"
     f = open("troll.c", "w")
     f.write(insert(timeout, output))
+
+
