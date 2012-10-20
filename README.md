@@ -7,7 +7,7 @@ It will translate what it finds on stdin to keypresses on the teensy that will l
 
 Call it like 
 
-    echo 'They see me trolling, they hating\n' | python LoopKeyboardGenerator.py 8
+    echo They see me trolling, they hating | python LoopKeyboardGenerator.py 4 
     make
 
 and load the resulting troll.hex file into your teensy. This will cause the teensy to loop the input

@@ -92,7 +92,7 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print "Reads input from pipe and creates a program outputing it"
         print "Takes one argument which is timeout in seconds."
-        print "echo 'They see me trolling, they hating\\n' | python LoopKeyboardGenerator.py 8"
+        print "echo They see me trolling, they hating | python LoopKeyboardGenerator.py 8"
         exit()
     timeout = "8"
     if len(sys.argv) >= 2:
